@@ -4,6 +4,19 @@ Task 2 of the Innovation Hacks Full Stack Development Internship: a REST API for
 users, projects, and tasks — the backend the DevTrack dashboard (Task 1) and the
 final platform (Task 4) will run on.
 
+## Features
+
+- Full CRUD for Users, Projects, and Tasks
+- Dedicated endpoint to update just a task's status (`PATCH /tasks/:id/status`)
+- Query-based filtering on task list (`status`, `projectId`, `assigneeId`, `priority`, `search`) and project list (`status`)
+- Centralized input validation on every write endpoint, with field-level error messages
+- Centralized error handling with consistent JSON error responses and correct HTTP status codes
+- Referential integrity checks — rejects tasks with an unknown `projectId`/`assigneeId`, and projects with unknown `memberIds`
+- Cascading delete — removing a project also removes its tasks
+- Environment-based configuration via `.env`, with no hardcoded secrets
+- Security middleware (`helmet`) and configurable CORS
+- Request logging via `morgan`
+
 ## Tech stack
 
 - **Node.js + Express 5** — HTTP server and routing
@@ -125,6 +138,21 @@ HTTP status codes are used meaningfully throughout: `200` (OK), `201` (created),
 A ready-to-import Postman collection is included at
 [`postman/DevTrack-API.postman_collection.json`](postman/DevTrack-API.postman_collection.json),
 covering every endpoint above with example request bodies.
+
+## Screenshots
+
+> Add screenshots here before submitting. Suggested captures:
+
+- Server startup log in the terminal (`npm run dev`)
+- A successful `POST` request in Postman (e.g. Create user) showing the `201 Created` response
+- A validation error response (e.g. missing required field) showing the `400` and error details
+- A `404` response for a non-existent resource
+- The Postman collection imported, showing all folders/endpoints in the sidebar
+
+![Server running](./screenshots/server-running.png)
+![Create user - success](./screenshots/create-user-success.png)
+![Get user - found](./screenshots/get-user-success.png)
+![Validation error](./screenshots/validation-error.png)
 
 ## Project structure
 
