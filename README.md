@@ -153,6 +153,8 @@ covering every endpoint above with example request bodies.
 ![Create user - success](./screenshots/create-user-success.png)
 ![Get user - found](./screenshots/get-user-success.png)
 ![Validation error](./screenshots/validation-error.png)
+![Not found error](./screenshots/404-error.png)
+![Postman collection imported](./screenshots/postman-collection.png)
 
 ## Project structure
 
